@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Dashboard serwera <%= guild.name %>
+    </title>
+</head>
+
+<body>
+    <form action="/logout" method="get">
+        <button type="submit">Wyloguj się</button>
+    </form>
+
+    <h1>Dashboard serwera <%= guild.name %>
+    </h1>
+    <p><strong>ID serwera:</strong>
+        <%= guild.id %>
+    </p>
+
+    <h2>Ustawienia serwera</h2>
+    <form method="post" action="/guilds/<%= guild.id %>/settings">
+        <label for="prefix">Prefix:</label>
+        <input type="text" id="prefix" name="prefix">
+        <button type="submit">Zapisz</button>
+    </form>
+</body>
+
+</html>

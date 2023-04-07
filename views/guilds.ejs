@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        <%= user.username %> - Dashboard
+    </title>
+    <style>
+        .server-button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="/logout" method="get">
+        <button type="submit">Wyloguj się</button>
+    </form>
+
+    <h1>Witaj, <%= user.user.username %>!</h1>
+    <p>Twoje serwery:</p>
+    <% if (guilds.length> 0) { %>
+        <ul>
+            <% guilds.forEach(function(guild) { %>
+                <li>
+                    <%= guild.name %>
+                        <% if (guild.icon) { %>
+                            <img src="<%= guild.icon %>">
+                            <% } %>
+                                <a href="/guilds/<%= guild.id %>" class="server-button">Zarządzaj
+                                    serwerem</a>
+                </li>
+                <% }); %>
+        </ul>
+        <% } else { %>
+            <p>Nie należysz do żadnych serwerów.</p>
+            <% } %>
+</body>
+
+</html>
