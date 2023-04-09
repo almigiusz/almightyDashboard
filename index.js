@@ -63,6 +63,7 @@ passport.deserializeUser(async (user, done) => {
     }
 });
 
+app.use(express.static('public'));
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
@@ -75,6 +76,7 @@ app.get('/auth/discord', passport.authenticate('discord'));
 app.get('/guilds', passport.authenticate('discord', { failureRedirect: '/' }), (req, res) => {
     const user = req.user;
     const guilds = req.user.guilds;
+    console.log(user);
     req.session.user = user;
     req.session.guilds = guilds;
 

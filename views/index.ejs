@@ -1,15 +1,218 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="author" content="kliku#3314">
+    <meta name="keywords"
+        content="discord bot, discord music bot, discord moderation bot, discord bot fun, almighty, almightybot, polski bot, discord bot pl, discord bot polska, polski bot discord, economy discord bot, polski bot discord, najlepszy polski bot, najlepszy polski bot discord, the best discord bot" />
+    <meta name="description"
+        content="Almighty is the only Discord bot you will ever need! All in one, invite Almighty today and start taking care of your server and your community with us!" />
+    <meta name="theme-color" content="#00FF7F">
+    <meta property="og:title" content="Almighty - The Discord Bot">
+    <meta property="og:description"
+        content="Almighty is the only Discord bot you will ever need! All in one, invite Almighty today and start taking care of your server and your community with us!">
+    <meta property="og:image" content="https://almightybot.com/img/almightyMainTransparent.png">
+    <meta property="og:url" content="https://almightybot.com/">
+    <title>Almighty - The Discord Bot</title>
+    <link rel="shortcut icon" href="./img/almightyMainTransparent.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css" type="text/css">
+    <script src="https://kit.fontawesome.com/9c9148d689.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <a href="/auth/discord"><button>Zaloguj się</button></a>
+    <button class="scroll-to-top"><i class="fas fa-chevron-up"></i></button>
+    <nav class="nav">
+        <div class="navbar wrapper">
+            <a href="#" class="navbar__brand"><img src="./img/almightyMainTransparentWhite.png" alt="Almighty logo"
+                    class="navbar__img">Almighty</a>
+            <div class="navbar__desktop">
+                <a href="commands" class="navbar__item">Commands</a>
+                <a href="/auth/discord" class="navbar__item navbar__item--special">Zaloguj się</a>
+            </div>
+            <button class="hamburger hamburger--spin" type="button">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+        </div>
+    </nav>
+    <nav class="navbar__mobile">
+        <a href="https://discord.com/api/oauth2/authorize?client_id=858410509454802944&amp;scope=bot&amp;permissions=8"
+            target="_blank" rel="noopener" class="navbar__item">Invite</a>
+        <a href="commands" class="navbar__item">Commands</a>
+        <a href="https://almighty.statuspage.io/" target="_blank" rel="noopener" class="navbar__item">Status</a>
+        <a href="https://top.gg/bot/858410509454802944" target="_blank" rel="noopener" class="navbar__item">Vote</a>
+        <a href="https://discord.gg/Sf7HkW6dVy" target="_blank" rel="noopener"
+            class="navbar__item navbar__item--special">Support</a>
+    </nav>
+    <header>
+        <div class="header wrapper">
+            <h1 class="header__title">Take care of your<br> server <span class="header__subtitle">with our bot</span>.
+            </h1>
+            <a href="https://discord.com/api/oauth2/authorize?client_id=858410509454802944&amp;scope=bot&amp;permissions=8"
+                target="_blank" rel="noopener" class="header__btn">Invite to Discord</a>
+        </div>
+    </header>
+    <main>
+        <section class="features" id="features">
+            <h2 class="features__title">Best Almighty Features</h2>
+            <div class="features__box wrapper">
+                <div class="features__item">
+                    <h3 class="features__item-title"><i class="fas fa-compact-disc"></i> Music</h3>
+                    <p class="features__item-text">The best possible music quality - listen to music without
+                        interference and in good quality! Everything done intuitively, without any complications.</p>
+                </div>
+                <div class="features__item">
+                    <h3 class="features__item-title"><i class="fas fa-crown"></i> Moderation</h3>
+                    <p class="features__item-text">A configurable moderation module that will maintain the highest level
+                        of security on your server! Maintain quality and order with a high-end automatic moderation
+                        module.</p>
+                </div>
+                <div class="features__item">
+                    <h3 class="features__item-title"><i class="fas fa-gavel"></i> Configuration</h3>
+                    <p class="features__item-text">Not only moderation is configurable. Virtually every module is
+                        configurable for you!</p>
+                </div>
+                <div class="features__item">
+                    <h3 class="features__item-title"><i class="fas fa-coins"></i> Economy</h3>
+                    <p class="features__item-text">Are you using a separate bot for economics? Thanks to us you will be
+                        able to put it away! Advanced economy that will give your server users something to do. The only
+                        limit is your imagination.</p>
+                </div>
+                <div class="features__item">
+                    <h3 class="features__item-title"><i class="fas fa-puzzle-piece"></i> Reaction Role</h3>
+                    <p class="features__item-text">Give the option to your community to choose roles with Almighty!
+                        Select roles for notifications, for zones, gender and more! It's all up to you.</p>
+                </div>
+                <div class="features__item">
+                    <h3 class="features__item-title"><i class="fas fa-home"></i> Greetings</h3>
+                    <p class="features__item-text">Welcome new members and help them get involved in your community!
+                        Inform them about the rules using your own design.</p>
+                </div>
+            </div>
+            <a href="commands" class="features__btn">Learn more</a>
+        </section>
+        <section class="statistics" id="statistics">
+            <div class="counter-box">
+                <div class="counter-item">
+                    <div class="counter" data-number='1000'>0</div>
+                    <p class="statistics__text"><i class="fas fa-server"></i> Servers</p>
+                </div>
+                <div class="counter-item">
+                    <div class="counter" data-number='150000'>0</div>
+                    <p class="statistics__text"><i class="fas fa-user"></i> Users</p>
+                </div>
+                <div class="counter-item">
+                    <div class="counter" data-number='14000'>0</div>
+                    <p class="statistics__text"><i class="fas fa-exclamation"></i> Daily Command Record</p>
+                </div>
+            </div>
+        </section>
+        <section class="bots" id="bots">
+            <div class="bots__box wrapper">
+                <h2 class="bots__title">Our other bots to help your server</h2>
+                <div class="bots__item">
+                    <!-- <h3 class="bots__text--advertisement">Almighty Advertisement</h3> -->
+                    <h3 class="bots__text"><span class="bots__text--advertisement">Almighty Advertisement</span>,
+                        Almighty's little brother - promote your server in a
+                        fun and easy way. You enter a drawn server, get points for which you can list your server.
+                        Simple, and how effective and enjoyable. With us you will abandon partnerships forever. Do you
+                        care about the development of your server? Will you pass up such an opportunity and move on
+                        without adding a bot?</h3>
+                </div>
+            </div>
+        </section>
+        <section class="partners" id="partners">
+            <div class="partners__box wrapper">
+                <h2 class="partners__title">See our Partners</h2>
+                <div class="partners__list">
+
+                    <div class="partners__item">
+                        <div class="partners__img-box"><img src="./img/theend-logo.png" alt="The End logo"
+                                class="partners__img">
+                        </div>
+                        <p class="partners__text">The End</p>
+                        <div class="partners__links"><a href="https://discord.gg/Khj2Rj2qeT" target="_blank"
+                                rel="noopener">
+                                <i class="fab fa-discord"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="partners__item">
+                        <div class="partners__img-box"><img src="./img/martistreams-logo.png" alt="MartiStreams logo"
+                                class="partners__img"></div>
+                        <p class="partners__text">MartiStreams</p>
+                        <div class="partners__links"><a href="https://twitch.tv/martistreams" target="_blank"
+                                rel="noopener"><i class="fab fa-twitch"></i></a></div>
+                    </div>
+
+                    <div class="partners__item">
+                        <div class="partners__img-box"><img src="./img/tanczacazbotami-logo.png"
+                                alt="tanczacazbotami logo" class="partners__img"></div>
+                        <p class="partners__text">tanczacazbotami</p>
+                        <div class="partners__links">
+                            <a href="https://twitch.tv/tanczacazbotami" target="_blank" rel="noopener">
+                                <i class="fab fa-twitch"></i>
+                            </a>
+                            <a href="https://discord.gg/cXTRPNc" target="_blank" rel="noopener">
+                                <i class="fab fa-discord"></i>
+                            </a>
+                            <a href="https://instagram.com/tanczacazbotami/" target="_blank" rel="noopener">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="partners__item">
+                        <div class="partners__img-box"><img src="./img/marmurowylis-logo.jpg" alt="MarmurowyLis logo"
+                                class="partners__img"></div>
+                        <p class="partners__text">MarmurowyLis</p>
+                        <div class="partners__links"><a href="https://twitch.tv/marmurowylis" target="_blank"
+                                rel="noopener"><i class="fab fa-twitch"></i></a><a
+                                href="https://instagram.com/marmurowylis/" target="_blank" rel="noopener"><i
+                                    class="fab fa-instagram"></i></a></div>
+                    </div>
+
+                    <div class="partners__item">
+                        <div class="partners__img-box"><img src="./img/francuz1441-logo.png" alt="Francuz1441 logo"
+                                class="partners__img"></div>
+                        <p class="partners__text">Francuz1441</p>
+                        <div class="partners__links"><a href="https://twitch.tv/francuz1441" target="_blank"
+                                rel="noopener"><i class="fab fa-twitch"></i></a></div>
+                    </div>
+
+                    <div class="partners__item">
+                        <div class="partners__img-box"><img src="./img/pkromka-logo.png" alt="pkromka logo"
+                                class="partners__img"></div>
+                        <p class="partners__text">Pkromka</p>
+                        <div class="partners__links"><a href="https://twitch.tv/pkromka" target="_blank"
+                                rel="noopener"><i class="fab fa-twitch"></i></a>
+                            <a href="https://instagram.com/kubixcki/" target="_blank" rel="noopener"><i
+                                    class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <a href="https://discord.gg/Sf7HkW6dVy" target="_blank" rel="noopener" class="partners__btn">Join us</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p class="footer__bottom-text">&copy; Copyright 2021 - <span class="footer__year"></span> Almighty, all rights
+            reserved.
+        </p>
+    </footer>
+
+    <script src="./js/main.js"></script>
+    <script src="./js/index.js"></script>
 </body>
 
 </html>

@@ -7,18 +7,100 @@
         <%= user.username %> - Dashboard
     </title>
     <style>
-        .server-button {
-            background-color: #4CAF50;
-            border: none;
+        /* style przycisku wylogowania */
+        button {
+            background-color: #f44336;
             color: white;
-            padding: 16px 32px;
+            border: none;
+            padding: 10px 20px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
             font-size: 16px;
             margin: 4px 2px;
             cursor: pointer;
-            border-radius: 8px;
+        }
+
+        /* style nagłówka */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        .navbar-user {
+            float: right;
+        }
+
+        .navbar-username {
+            color: white;
+            padding: 14px 16px;
+            font-size: 18px;
+        }
+
+        .navbar-avatar img {
+            border-radius: 50%;
+            height: 40px;
+            width: 40px;
+            margin-top: 10px;
+        }
+
+        /* style listy serwerów */
+        .server-list {
+            margin-top: 100px;
+            padding: 20px;
+        }
+
+        .server-list-title {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .server-list-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .server-card {
+            background-color: #f2f2f2;
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .server-card-icon img {
+            height: 50px;
+            width: 50px;
+            margin-bottom: 10px;
+        }
+
+        .server-card-title {
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .server-card-button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .server-list-empty {
+            color: #333;
+            font-size: 18px;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -28,24 +110,37 @@
         <button type="submit">Wyloguj się</button>
     </form>
 
-    <h1>Witaj, <%= user.user.username %>!</h1>
-    <p>Twoje serwery:</p>
-    <% if (guilds.length> 0) { %>
-        <ul>
+    <div class="navbar">
+        <div class="navbar-user">
+            <span class="navbar-username">
+                <%= user.user.username %>
+            </span>
+            <div class="navbar-avatar">
+                <img src="<%= user.user.avatar %>" alt="Avatar">
+            </div>
+        </div>
+    </div>
+    <div class="server-list">
+        <h2 class="server-list-title">Lista serwerów</h2>
+        <div class="server-list-grid">
             <% guilds.forEach(function(guild) { %>
-                <li>
-                    <%= guild.name %>
-                        <% if (guild.icon) { %>
-                            <img src="<%= guild.icon %>">
-                            <% } %>
-                                <a href="/guilds/<%= guild.id %>" class="server-button">Zarządzaj
-                                    serwerem</a>
-                </li>
+                <div class="server-card">
+                    <% if (guild.icon) { %>
+                        <div class="server-card-icon">
+                            <img src="<%= guild.icon %>" alt="<%= guild.name %> icon">
+                        </div>
+                        <% } %>
+                            <h3 class="server-card-title">
+                                <%= guild.name %>
+                            </h3>
+                            <a href="/guilds/<%= guild.id %>" class="server-card-button">Zarządzaj serwerem</a>
+                </div>
                 <% }); %>
-        </ul>
-        <% } else { %>
-            <p>Nie należysz do żadnych serwerów.</p>
+        </div>
+        <% if (guilds.length===0) { %>
+            <p class="server-list-empty">Nie należysz do żadnych serwerów.</p>
             <% } %>
+    </div>
 </body>
 
 </html>
