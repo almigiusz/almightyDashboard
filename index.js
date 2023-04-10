@@ -14,6 +14,7 @@ const client = new Client({
 
 const User = require('./models/user');
 const prefixSchema = require('./models/prefixSchema.js');
+const languageSchema = require('./models/languageSchema.js');
 
 dotenv.config();
 
@@ -131,7 +132,6 @@ app.get('/guilds/:serverID', (req, res) => {
     const serverID = req.params.serverID;
 
     const guild = guilds.find(g => g.id === serverID);
-    console.log(guild);
 
     if (!guild) {
         res.status(404).send('Wystąpił błąd.');
@@ -155,9 +155,11 @@ app.use(express.urlencoded({ extended: true }));
 
 app.post('/guilds/:serverID/settings', async (req, res) => {
     const prefix = req.body.prefix;
+    const language = req.body.language;
     const serverID = req.params.serverID;
 
     await prefixSchema.findOneAndUpdate({ guildID: serverID }, { prefix: prefix });
+    await languageSchema.findOneAndUpdate({ guildID: serverID }, { language: language });
 
     res.redirect(`/guilds/${serverID}`);
 });

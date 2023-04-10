@@ -16,20 +16,27 @@
         <button type="submit">Zmień serwer</button>
     </form>
 
-    <h1>Lista członków serwera <%= guild.name %>
-    </h1>
-
     <h1>Dashboard serwera <%= guild.name %>
     </h1>
     <p><strong>ID serwera:</strong>
         <%= guild.id %>
-    </p>>
+    </p>
 
     <h2>Ustawienia serwera</h2>
     <form method="post" action="/guilds/<%= guild.id %>/settings">
         <label for="prefix">Prefix:</label>
         <input type="text" id="prefix" name="prefix">
         <button type="submit">Zapisz</button>
+    </form>
+
+    <h2>Wybierz język:</h2>
+    <form method="post" action="/guilds/<%= guild.id %>/settings">
+        <select name="language">
+            <option value="pl">Polski</option>
+            <option value="en">English</option>
+            <option value="de">Deutsch</option>
+        </select>
+        <button type="submit">Zmień</button>
     </form>
 </body>
 
