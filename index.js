@@ -5,6 +5,13 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const session = require('express-session');
 
+const Discord = require('discord.js')
+const { Client, Intents } = require('discord.js');
+const client = new Client({
+    intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_VOICE_STATES, Intents.FLAGS.GUILD_PRESENCES, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS, Intents.FLAGS.GUILD_MEMBERS],
+    partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
+});
+
 const User = require('./models/user');
 const prefixSchema = require('./models/prefixSchema.js');
 
@@ -37,13 +44,15 @@ passport.use(new DiscordStrategy({
             email: profile.email,
         }, { upsert: true, new: true });
 
-        const guilds = profile.guilds.filter(guild => (guild.permissions & 0x8) === 0x8).map(guild => {
-            return {
-                id: guild.id,
-                name: guild.name,
-                icon: guild.icon && `https:cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png?size=128`,
-            };
-        });
+        const guilds = profile.guilds
+            .filter(guild => (guild.permissions & 0x8) === 0x8)
+            .map(guild => {
+                return {
+                    id: guild.id,
+                    name: guild.name,
+                    icon: guild.icon && `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png?size=128`,
+                }
+            });
 
         done(null, { user: user, guilds: guilds });
     } catch (err) {
@@ -83,12 +92,26 @@ app.get('/auth/discord/callback', passport.authenticate('discord', { failureRedi
 app.get('/guilds', async (req, res) => {
     const user = req.session.user;
     const guilds = req.session.guilds;
+    const botGuilds = [];
 
     if (!user) {
         return res.redirect('/auth/discord');
     }
 
-    res.render('guilds', { user: user, guilds: guilds });
+    await client.guilds.fetch();
+
+    const botGuildIds = client.guilds.cache.map((guild) => guild.id);
+
+    await Promise.all(
+        guilds.map(async (guild) => {
+            if (botGuildIds.includes(guild.id)) {
+                const botGuild = await client.guilds.fetch(guild.id);
+                botGuilds.push(botGuild);
+            }
+        })
+    );
+
+    res.render('guilds', { user: user, guilds: botGuilds });
 });
 
 app.use(function (err, req, res, next) {
@@ -105,16 +128,15 @@ app.get('/guilds/:serverID', (req, res) => {
         return res.redirect('/auth/discord');
     }
 
-
     const serverID = req.params.serverID;
 
-
     const guild = guilds.find(g => g.id === serverID);
+    console.log(guild);
+
     if (!guild) {
         res.status(404).send('Wystąpił błąd.');
         return;
     }
-    console.log(guild.members.cache.get(`858410509454802944`));
 
     res.render('server', { user: user, guild: guild });
 });
@@ -143,3 +165,4 @@ app.post('/guilds/:serverID/settings', async (req, res) => {
 app.listen(2137, () => {
     console.log('Serwer uruchomiony na porcie 2137.');
 });
+client.login(process.env.DISCORD_TOKEN);

@@ -131,21 +131,19 @@
         <h2 class="server-list-title">Lista serwerów</h2>
         <div class="server-list-grid">
             <% guilds.forEach(function(guild) { %>
-                <% console.log(guild.members); %>
-                    <div class="server-card">
-                        <% if (guild.icon) { %>
-                            <div class="server-card-icon">
-                                <img src="<%= guild.icon %>" alt="<%= guild.name %> icon">
-                            </div>
+                <div class="server-card">
+                    <% if (guild.icon) { %>
+                        <img src="<%= guild.iconURL() %>" alt="<%= guild.name %> icon">
+                        <% } else { %>
+                            <img src="https://cdn.discordapp.com/icons/859427262713692220/9971ddcb6c568813c44dd7cdb47a753e.webp"
+                                alt="Default icon">
                             <% } %>
                                 <h3 class="server-card-title">
                                     <%= guild.name %>
                                 </h3>
-                                <p>Role: <%= guild.role %>
-                                </p>
                                 <a href="/guilds/<%= guild.id %>" class="server-card-button">Zarządzaj serwerem</a>
-                    </div>
-                    <% }); %>
+                </div>
+                <% }); %>
         </div>
         <% if (guilds.length===0) { %>
             <p class="server-list-empty">Nie należysz do żadnych serwerów.</p>
