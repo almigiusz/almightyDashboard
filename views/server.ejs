@@ -12,11 +12,18 @@
         <button type="submit">Wyloguj się</button>
     </form>
 
+    <form action="/guilds" method="get">
+        <button type="submit">Zmień serwer</button>
+    </form>
+
+    <h1>Lista członków serwera <%= guild.name %>
+    </h1>
+
     <h1>Dashboard serwera <%= guild.name %>
     </h1>
     <p><strong>ID serwera:</strong>
         <%= guild.id %>
-    </p>
+    </p>>
 
     <h2>Ustawienia serwera</h2>
     <form method="post" action="/guilds/<%= guild.id %>/settings">

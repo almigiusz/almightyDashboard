@@ -43,7 +43,6 @@ passport.use(new DiscordStrategy({
             };
         });
 
-
         done(null, { user: user, guilds: guilds });
     } catch (err) {
         done(err, null);
@@ -70,15 +69,23 @@ app.use(session({
     saveUninitialized: false
 }));
 app.use(passport.initialize());
+app.use(passport.session());
 
 app.get('/auth/discord', passport.authenticate('discord'));
+app.get('/auth/discord/callback', passport.authenticate('discord', { failureRedirect: '/' }), (req, res) => {
+    req.session.user = req.user;
+    req.session.guilds = req.user.guilds;
 
-app.get('/guilds', passport.authenticate('discord', { failureRedirect: '/' }), (req, res) => {
-    const user = req.user;
-    const guilds = req.user.guilds;
-    console.log(user);
-    req.session.user = user;
-    req.session.guilds = guilds;
+    res.redirect('/guilds')
+});
+
+app.get('/guilds', (req, res) => {
+    const user = req.session.user;
+    const guilds = req.session.guilds;
+
+    if (!user) {
+        return res.redirect('/auth/discord');
+    }
 
     res.render('guilds', { user: user, guilds: guilds });
 });
@@ -94,8 +101,7 @@ app.get('/guilds/:serverID', (req, res) => {
     const guilds = req.session.guilds;
 
     if (!user) {
-        res.redirect('/auth/discord');
-        return;
+        return res.redirect('/auth/discord');
     }
 
     const serverID = req.params.serverID;

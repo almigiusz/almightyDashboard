@@ -4,10 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <title>
-        <%= user.username %> - Dashboard
+        <%= user.user.username %> - Dashboard
     </title>
     <style>
         /* style przycisku wylogowania */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         button {
             background-color: #f44336;
             color: white;
@@ -31,7 +37,9 @@
         }
 
         .navbar-user {
-            float: right;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
         }
 
         .navbar-username {
@@ -112,12 +120,12 @@
 
     <div class="navbar">
         <div class="navbar-user">
-            <span class="navbar-username">
-                <%= user.user.username %>
-            </span>
             <div class="navbar-avatar">
                 <img src="<%= user.user.avatar %>" alt="Avatar">
             </div>
+            <span class="navbar-username">
+                <%= user.user.username %>
+            </span>
         </div>
     </div>
     <div class="server-list">
@@ -133,6 +141,8 @@
                             <h3 class="server-card-title">
                                 <%= guild.name %>
                             </h3>
+                            <p>Role: <%= guild.role %>
+                            </p>
                             <a href="/guilds/<%= guild.id %>" class="server-card-button">Zarządzaj serwerem</a>
                 </div>
                 <% }); %>
