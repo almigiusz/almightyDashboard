@@ -15,15 +15,17 @@ const path = require('path');
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('Połączono z bazą danych MongoDB.'))
+mongoose.connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => console.log('Połączono z bazą danych MongoDB.'))
     .catch(err => console.log(err));
 
 passport.use(new DiscordStrategy({
     clientID: process.env.DISCORD_CLIENT_ID,
     clientSecret: process.env.DISCORD_CLIENT_SECRET,
     callbackURI: process.env.DISCORD_CALLBACK_URL,
-    scope: ['identify', 'guilds', 'guilds.join']
+    scope: ['identify', 'guilds', 'guilds.join', 'guilds.members.read']
 }, async (accessToken, refreshToken, profile, done) => {
     try {
         const user = await User.findOneAndUpdate({ discordId: profile.id }, {
@@ -69,7 +71,6 @@ app.use(session({
     saveUninitialized: false
 }));
 app.use(passport.initialize());
-app.use(passport.session());
 
 app.get('/auth/discord', passport.authenticate('discord'));
 app.get('/auth/discord/callback', passport.authenticate('discord', { failureRedirect: '/' }), (req, res) => {
@@ -79,7 +80,7 @@ app.get('/auth/discord/callback', passport.authenticate('discord', { failureRedi
     res.redirect('/guilds')
 });
 
-app.get('/guilds', (req, res) => {
+app.get('/guilds', async (req, res) => {
     const user = req.session.user;
     const guilds = req.session.guilds;
 
@@ -104,13 +105,16 @@ app.get('/guilds/:serverID', (req, res) => {
         return res.redirect('/auth/discord');
     }
 
+
     const serverID = req.params.serverID;
+
 
     const guild = guilds.find(g => g.id === serverID);
     if (!guild) {
         res.status(404).send('Wystąpił błąd.');
         return;
     }
+    console.log(guild.members.cache.get(`858410509454802944`));
 
     res.render('server', { user: user, guild: guild });
 });
