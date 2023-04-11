@@ -148,7 +148,7 @@ app.get('/logout', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('index', { client: client });
 });
 
 app.use(express.urlencoded({ extended: true }));

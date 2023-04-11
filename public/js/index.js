@@ -16,10 +16,10 @@ const startCounter = entry => {
 				const speed = finalNumber / 300
 
 				if (value < finalNumber) {
-					counter.textContent = `${Math.floor(value + speed)}` + `+`
+					counter.textContent = Math.floor(value + speed)
 					setTimeout(updateCounter, 1)
 				} else {
-					counter.textContent = `${finalNumber}` + `+`
+					counter.textContent = finalNumber
 				}
 			}
 

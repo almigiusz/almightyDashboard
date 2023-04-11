@@ -101,11 +101,15 @@
         <section class="statistics" id="statistics">
             <div class="counter-box">
                 <div class="counter-item">
-                    <div class="counter" data-number='1000'>0</div>
+                    <div class="counter" data-number='<%=
+                    client.guilds.cache.size %>'>0
+                    </div>
                     <p class="statistics__text"><i class="fas fa-server"></i> Servers</p>
                 </div>
                 <div class="counter-item">
-                    <div class="counter" data-number='150000'>0</div>
+                    <div class="counter"
+                        data-number='<%= client.guilds.cache.map((g)=> g.memberCount).reduce((a, c) => a + c) %>'>0
+                    </div>
                     <p class="statistics__text"><i class="fas fa-user"></i> Users</p>
                 </div>
                 <div class="counter-item">
