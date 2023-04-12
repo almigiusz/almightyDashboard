@@ -103,14 +103,12 @@ app.get('/guilds', async (req, res) => {
 
     const botGuildIds = client.guilds.cache.map((guild) => guild.id);
 
-    await Promise.all(
-        guilds.map(async (guild) => {
-            if (botGuildIds.includes(guild.id)) {
-                const botGuild = await client.guilds.fetch(guild.id);
-                botGuilds.push(botGuild);
-            }
-        })
-    );
+    for (const guild of guilds) {
+        if (botGuildIds.includes(guild.id)) {
+            const botGuild = await client.guilds.fetch(guild.id);
+            botGuilds.push(botGuild);
+        }
+    }
 
     res.render('guilds', { user: user, guilds: botGuilds });
 });
