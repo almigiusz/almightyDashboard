@@ -23,12 +23,14 @@ router.get('/', async (req, res) => {
 
     const botGuildIds = client.guilds.cache.map((guild) => guild.id);
 
-    for (const guild of guilds) {
-        if (botGuildIds.includes(guild.id)) {
-            const botGuild = await client.guilds.fetch(guild.id);
-            botGuilds.push(botGuild);
-        }
-    }
+    const fetchGuilds = guilds.filter((guild) => botGuildIds.includes(guild.id))
+        .map((guild) => client.guilds.fetch(guild.id));
+
+    const fetchedGuilds = await Promise.all(fetchGuilds);
+
+    fetchedGuilds.forEach((guild) => {
+        botGuilds.push(guild);
+    });
 
     res.render('guilds', { user: user, guilds: botGuilds });
 });

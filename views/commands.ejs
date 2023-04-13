@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="kliku#3314">
+    <meta name="keywords"
+        content="discord bot, discord music bot, discord moderation bot, discord bot fun, almighty, almightybot, polski bot, discord bot pl, discord bot polska, polski bot discord, economy discord bot, polski bot discord, najlepszy polski bot, najlepszy polski bot discord, the best discord bot" />
+    <meta name="description"
+        content="Familiarize yourself with our commands to make managing and using your server more fun!" />
+    <meta name="theme-color" content="#00FF7F">
+    <meta property="og:title" content="Almighty - The Discord Bot">
+    <meta property="og:description"
+        content="Familiarize yourself with our commands to make managing and using your server more fun!">
+    <meta property="og:image" content="https://almightybot.com/img/almightyMainTransparent.png">
+    <meta property="og:url" content="https://almightybot.com/">
+    <title>Almighty - The Discord Bot</title>
+    <link rel="shortcut icon" href="./img/almightyMainTransparent.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="https://kit.fontawesome.com/9c9148d689.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="commands-bg">
+    <button class="scroll-to-top"><i class="fas fa-angle-up"></i></button>
+    <nav class="nav">
+        <div class="navbar wrapper">
+            <a href="https://almightybot.com" class="navbar__brand"><img src="./img/almightyMainTransparentWhite.png"
+                    alt="Almighty logo" class="navbar__img">Almighty</a>
+            <div class="navbar__desktop">
+                <a href="https://discord.com/api/oauth2/authorize?client_id=858410509454802944&amp;scope=bot&amp;permissions=8"
+                    target="_blank" rel="noopener" class="navbar__item">Invite</a>
+                <a href="#" class="navbar__item">Commands</a>
+                <a href="https://almighty.statuspage.io/" target="_blank" rel="noopener" class="navbar__item">Status</a>
+                <a href="https://top.gg/bot/858410509454802944" target="_blank" rel="noopener"
+                    class="navbar__item">Vote</a>
+                <a href="https://discord.gg/Sf7HkW6dVy" target="_blank" rel="noopener"
+                    class="navbar__item navbar__item--special">Support</a>
+            </div>
+            <button class="hamburger hamburger--spin" type="button">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+        </div>
+    </nav>
+    <nav class="navbar__mobile">
+        <a href="https://discord.com/api/oauth2/authorize?client_id=858410509454802944&amp;scope=bot&amp;permissions=8"
+            target="_blank" rel="noopener" class="navbar__item">Invite</a>
+        <a href="#" class="navbar__item">Commands</a>
+        <a href="https://almighty.statuspage.io/" target="_blank" rel="noopener" class="navbar__item">Status</a>
+        <a href="https://top.gg/bot/858410509454802944" target="_blank" rel="noopener" class="navbar__item">Vote</a>
+        <a href="https://discord.gg/Sf7HkW6dVy" target="_blank" rel="noopener"
+            class="navbar__item navbar__item--special">Support</a>
+    </nav>
+
+    <main>
+        <section class="description">
+            <div class="description__box wrapper">
+                <p class="description__title">Commands prefix</p>
+                <p class="description__text">Default: <span>!</span></p>
+                <p class="description__text">Example: <span>!help</span></p>
+                <p class="description__title">Commands usage syntax</p>
+                <p class="description__text"><span>
+                        <>
+                    </span> - required parameter</p>
+                <p class="description__text"><span>[ ]</span> - optional parameter</p>
+                <p class="description__text"><span class="description__params">
+                        < parameter1 | parameter2>
+                    </span> - select one of these options</p>
+            </div>
+        </section>
+        <section class="commands" id="commands">
+            <div class="commands__box wrapper">
+                <div class="commands__menu">
+                    <p class="commands__text">Commands</p>
+                    <button onclick="showInfo('first-tab')" class="commands__btn commands__btn--active"
+                        data-id="first-tab">All</button>
+                    <button onclick="showInfo('second-tab')" class="commands__btn"
+                        data-id="second-tab">Information</button>
+                    <button onclick="showInfo('third-tab')" class="commands__btn"
+                        data-id="third-tab">Moderation</button>
+                    <button onclick="showInfo('four-tab')" class="commands__btn"
+                        data-id="four-tab">Configuration</button>
+                    <button onclick="showInfo('five-tab')" class="commands__btn" data-id="five-tab">Economy</button>
+                    <button onclick="showInfo('six-tab')" class="commands__btn" data-id="six-tab">For fun</button>
+                    <button onclick="showInfo('seven-tab')" class="commands__btn" data-id="seven-tab">Music</button>
+                </div>
+                <div class="commands__list">
+                    <div class="commands__search-box"><input type="text" class="commands__search"
+                            placeholder="Search...">
+                        <div class="commands__search-icon-box"><i class="fas fa-search"></i><i class="fas fa-times"></i>
+                        </div>
+                    </div>
+                    <p class="commands__error">No results.</p>
+                    <div class="commands__section commands__section--active" id="first-tab">
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-info"></i>
+                                <span>channel-info</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-info"></i> <span>help</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-info"></i> <span>invite</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-info"></i>
+                                <span>role-info</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-info"></i>
+                                <span>serverinfo</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-info"></i> <span>uptime</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-crown"></i> <span>ban</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-crown"></i>
+                                <span>cc-create</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-crown"></i>
+                                <span>cc-delete</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-crown"></i>
+                                <span>checkwarn</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-crown"></i> <span>clear</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-crown"></i>
+                                <span>delwarn</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-crown"></i> <span>embed</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-crown"></i> <span>kick</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-crown"></i> <span>news</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-crown"></i> <span>poll</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-crown"></i>
+                                <span>slowmode</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-crown"></i> <span>ticket</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-crown"></i>
+                                <span>timeout</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-crown"></i> <span>warn</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-sliders-h"></i>
+                                <span>addrole</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-sliders-h"></i>
+                                <span>antiLink</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-sliders-h"></i>
+                                <span>config</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-sliders-h"></i>
+                                <span>goodbyes</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-sliders-h"></i>
+                                <span>setchannel-logs</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-sliders-h"></i>
+                                <span>setchannel-suggestions</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-sliders-h"></i>
+                                <span>setlanguage</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-sliders-h"></i>
+                                <span>setmessage-goodbyes</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-sliders-h"></i>
+                                <span>setmessage-welcome</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-sliders-h"></i>
+                                <span>setprefix</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-sliders-h"></i>
+                                <span>setrole-welcome</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-sliders-h"></i>
+                                <span>welcome</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i>
+                                <span>add-money</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i>
+                                <span>balance</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i>
+                                <span>blackjack</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i> <span>buy</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i>
+                                <span>coinflip</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i> <span>crime</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i>
+                                <span>deposit</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i> <span>hack</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i>
+                                <span>leaderboard</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i> <span>pay</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i> <span>profil</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i> <span>rep</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i> <span>rob</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i> <span>shop</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i> <span>slut</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i>
+                                <span>withdraw</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i> <span>work</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-poo"></i> <span>8ball</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-poo"></i> <span>ascii</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-poo"></i> <span>avatar</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-poo"></i>
+                                <span>calculator</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-poo"></i> <span>cat</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-poo"></i> <span>dog</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-poo"></i> <span>hug</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-poo"></i> <span>iq</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-poo"></i> <span>kiss</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-poo"></i> <span>overlay</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-poo"></i> <span>ping</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-poo"></i> <span>punch</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-poo"></i> <span>weather</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-compact-disc"></i>
+                                <span>forward</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-compact-disc"></i>
+                                <span>leave</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-compact-disc"></i>
+                                <span>loop</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-compact-disc"></i>
+                                <span>pause</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-compact-disc"></i>
+                                <span>play</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-compact-disc"></i>
+                                <span>queue</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-compact-disc"></i>
+                                <span>resume</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-compact-disc"></i>
+                                <span>skip</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-compact-disc"></i>
+                                <span>volume</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="commands__section" id="second-tab">
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-info"></i>
+                                <span>channel-info</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-info"></i> <span>help</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-info"></i> <span>invite</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-info"></i>
+                                <span>role-info</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-info"></i>
+                                <span>serverinfo</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-info"></i> <span>uptime</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="commands__section" id="third-tab">
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-crown"></i> <span>ban</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-crown"></i>
+                                <span>cc-create</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-crown"></i>
+                                <span>cc-delete</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-crown"></i>
+                                <span>checkwarn</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-crown"></i> <span>clear</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-crown"></i>
+                                <span>delwarn</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-crown"></i> <span>embed</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-crown"></i> <span>kick</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-crown"></i> <span>news</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-crown"></i> <span>poll</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-crown"></i>
+                                <span>slowmode</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-crown"></i> <span>ticket</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-crown"></i>
+                                <span>timeout</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-crown"></i> <span>warn</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="commands__section" id="four-tab">
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-sliders-h"></i>
+                                <span>addrole</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-sliders-h"></i>
+                                <span>antiLink</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-sliders-h"></i>
+                                <span>config</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-sliders-h"></i>
+                                <span>goodbyes</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-sliders-h"></i>
+                                <span>setchannel-logs</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-sliders-h"></i>
+                                <span>setchannel-suggestions</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-sliders-h"></i>
+                                <span>setlanguage</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-sliders-h"></i>
+                                <span>setmessage-goodbyes</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-sliders-h"></i>
+                                <span>setmessage-welcome</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-sliders-h"></i>
+                                <span>setprefix</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-sliders-h"></i>
+                                <span>setrole-welcome</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-sliders-h"></i>
+                                <span>welcome</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="commands__section" id="five-tab">
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i>
+                                <span>add-money</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i>
+                                <span>balance</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i>
+                                <span>blackjack</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i> <span>buy</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i>
+                                <span>coinflip</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i> <span>crime</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i>
+                                <span>deposit</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i> <span>hack</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i>
+                                <span>leaderboard</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i> <span>pay</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i> <span>profil</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i> <span>rep</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i> <span>rob</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i> <span>shop</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i> <span>slut</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i>
+                                <span>withdraw</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-coins"></i> <span>work</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="commands__section" id="six-tab">
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-poo"></i> <span>8ball</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-poo"></i> <span>ascii</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-poo"></i> <span>avatar</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-poo"></i>
+                                <span>calculator</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-poo"></i> <span>cat</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-poo"></i> <span>dog</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-poo"></i> <span>hug</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-poo"></i> <span>iq</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-poo"></i> <span>kiss</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-poo"></i> <span>overlay</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-poo"></i> <span>ping</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-poo"></i> <span>punch</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-poo"></i> <span>weather</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="commands__section" id="seven-tab">
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-compact-disc"></i>
+                                <span>forward</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-compact-disc"></i>
+                                <span>leave</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-compact-disc"></i>
+                                <span>loop</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-compact-disc"></i>
+                                <span>pause</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-compact-disc"></i>
+                                <span>play</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-compact-disc"></i>
+                                <span>queue</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-compact-disc"></i>
+                                <span>resume</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-compact-disc"></i>
+                                <span>skip</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                        <div class="commands__item">
+                            <button class="commands__item-btn"><i class="fas fa-compact-disc"></i>
+                                <span>volume</span></button>
+                            <div class="commands__item-info">
+                                <p class="commands__item-info-text">A description will be available soon.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="commands__right"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p class="footer__bottom-text">&copy; Copyright 2021 - <span class="footer__year"></span> Almighty, all rights
+            reserved.
+        </p>
+    </footer>
+
+    <script src="./js/main.js"></script>
+    <script src="./js/cmd.js"></script>
+</body>
+
+</html>
