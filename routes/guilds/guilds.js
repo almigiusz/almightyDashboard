@@ -19,8 +19,6 @@ router.get('/', async (req, res) => {
         return res.redirect('/auth/discord');
     }
 
-    await client.guilds.fetch();
-
     const botGuildIds = client.guilds.cache.map((guild) => guild.id);
 
     const fetchGuilds = guilds.filter((guild) => botGuildIds.includes(guild.id))
@@ -31,6 +29,12 @@ router.get('/', async (req, res) => {
     fetchedGuilds.forEach((guild) => {
         botGuilds.push(guild);
     });
+
+    const missingGuilds = botGuilds.filter((guild) => !guild.name);
+
+    if (missingGuilds.length > 0) {
+        return res.send(`Waiting for guild information to be fetched for: ${missingGuilds.map((guild) => guild.id)}. Please try refreshing the page. If needed, try doing it multiple times.`);
+    }
 
     res.render('guilds', { user: user, guilds: botGuilds });
 });
