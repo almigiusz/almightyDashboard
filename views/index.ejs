@@ -33,7 +33,13 @@
                     class="navbar__img">Almighty</a>
             <div class="navbar__desktop">
                 <a href="commands" class="navbar__item">Commands</a>
-                <a href="/auth/discord" class="navbar__item navbar__item--special">Zaloguj się</a>
+                <% if (isAuthenticated) { %>
+                    <span>Witaj, <%= isAuthenticated.user.username %>!</span>
+                    <a href="/auth/logout" class="navbar__item navbar__item--special">Wyloguj się</a>
+                    <% } else { %>
+                        <a href="/auth/discord" target="_blank" rel="noopener"
+                            class="navbar__item navbar__item--special">Zaloguj się</a>
+                        <% } %>
             </div>
             <button class="hamburger hamburger--spin" type="button">
                 <span class="hamburger-box">
@@ -44,8 +50,13 @@
     </nav>
     <nav class="navbar__mobile">
         <a href="commands" class="navbar__item">Commands</a>
-        <a href="/auth/discord" target="_blank" rel="noopener" class="navbar__item navbar__item--special">Zaloguj
-            się</a>
+        <% if (isAuthenticated) { %>
+            <span>Witaj, <%= isAuthenticated.user.username %>!</span>
+            <a href="/auth/logout" class="navbar__item navbar__item--special">Wyloguj się</a>
+            <% } else { %>
+                <a href="/auth/discord" target="_blank" rel="noopener"
+                    class="navbar__item navbar__item--special">Zaloguj się</a>
+                <% } %>
     </nav>
     <header>
         <div class="header wrapper">

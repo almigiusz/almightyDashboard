@@ -8,7 +8,8 @@ const client = new Client({
 });
 
 router.get('/', (req, res) => {
-    res.render('index', { client: client });
+    const isAuthenticated = req.session.user ? req.session.user : false;
+    res.render('index', { client: client, isAuthenticated });
 });
 
 router.get('/commands', (req, res) => {
